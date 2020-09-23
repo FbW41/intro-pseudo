@@ -1,0 +1,116 @@
+body {
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.3;
+  /* background-color: lightblue; */
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
+  color: #0f4c5c;
+  line-height: 0.9;
+}
+
+h2 {
+  margin-top: 1.2em;
+  margin-bottom: 0;
+}
+
+p {
+  margin: 0.25em;
+}
+
+a {
+  color: #c32;
+}
+
+a[data-tool-tip] {
+  position: relative;
+}
+
+a[data-tool-tip]::after {
+  content: attr(data-tool-tip);
+  display: inline-block;
+  position: absolute;
+  background-color: grey;
+  border-radius: 5px;
+  font-size: 0.8em;
+  color: white;
+  padding: 1em 3em;
+  left: 0;
+  bottom: 0;
+
+  transform: scale(0);
+  transition: all ease-out 1s;
+}
+
+a[data-tool-tip]:hover::after {
+  transform: scale(1);
+  bottom: 100%;
+}
+
+/* ending with  .pdf */
+a[href$='.pdf']::after {
+  font-family: 'Font Awesome 5 Free';
+  content: '\f1c1';
+  font-weight: 900;
+  font-size: 0.9em;
+}
+
+/* add after ever a tag starting with http */
+a[href^='http']::after {
+  font-family: 'Font Awesome 5 Free';
+  content: '\f35d';
+  font-weight: 900;
+  font-size: 0.8em;
+}
+
+.intro {
+  font-size: 3rem;
+}
+
+/* .decorations::before {
+  content: url(https://www.placecage.com/200/300);
+} */
+
+blockquote {
+  font-size: 1.5rem;
+}
+
+blockquote::before {
+  content: open-quote;
+}
+
+blockquote::after {
+  content: close-quote;
+}
+
+.decorations {
+  padding: 4em;
+}
+
+.section-with-deco::before {
+  font-family: 'Font Awesome 5 Free';
+  content: '\f6be';
+  display: block;
+  margin-bottom: 5px;
+}
+
+.counters {
+  background-color: lightgrey;
+  text-align: left;
+  padding: 5em 8em;
+
+  /* setting a counter to reference */
+  counter-reset: counter-name;
+}
+
+.section-with-count {
+  position: relative;
+}
+
+.section-with-count::before {
+  counter-increment: counter-name;
+  position: absolute;
+}
