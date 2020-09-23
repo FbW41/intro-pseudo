@@ -21,6 +21,19 @@ p {
   margin: 0.25em;
 }
 
+p::first-letter {
+  font-size: 2em;
+}
+
+p::first-line {
+  color: rebeccapurple;
+}
+
+p::selection {
+  color: white;
+  background-color: violet;
+}
+
 a {
   color: #c32;
 }
@@ -112,5 +125,16 @@ blockquote::after {
 
 .section-with-count::before {
   counter-increment: counter-name;
+  content: counter(counter-name);
   position: absolute;
+  left: -2.5em;
+  top: -0.5em;
+  background: white;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
